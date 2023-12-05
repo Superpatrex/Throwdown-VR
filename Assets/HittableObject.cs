@@ -13,7 +13,9 @@ public class HittableObject : MonoBehaviour
     public float health = 10;
     public float hitCooldown = 1;
     public ParticleSystem hitParticle = null;
+    public AudioClip hitSound = null;
     public ParticleSystem deathParticle = null;
+    public AudioClip deathSound = null;
     
     private float hitTime;
     private bool justHit = false;
@@ -46,19 +48,27 @@ public class HittableObject : MonoBehaviour
             return;
 
         health -= damage;
-        Vector3 force = direction.normalized * (1.5f * damage + 1.25f);
+        Vector3 force = direction.normalized * (0.4f * damage + 2f);
         GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
         justHit = true;
         hitTime = hitCooldown;
         GetComponent<Rigidbody>().excludeLayers ^= 1 << 6;
-        GetComponent<AudioSource>().Play();
+        PlaySound(hitSound);
         if (health < 0)
         {
             DisplayParticle(deathParticle);
+            PlaySound(deathSound);
             Destroy(gameObject);
             return;
         }
         DisplayParticle(hitParticle);
+    }
+
+    private void PlaySound(AudioClip sound)
+    {
+        if (sound == null)
+            return;
+        AudioSource.PlayClipAtPoint(sound, transform.position);
     }
 
     private void DisplayParticle(ParticleSystem particle)
@@ -66,7 +76,8 @@ public class HittableObject : MonoBehaviour
         if (particle == null)
             return;
         particle.transform.position = transform.position;
-        particle.Play();
+        particle.Stop();
+        particle.Emit(100);
     }
 
     private bool CheckIfSelf(DamageObject source)
