@@ -11,11 +11,18 @@ public class NetworkConnect : MonoBehaviour
     {
         NetworkManager.Singleton.StartHost();
         Debug.Log("Creating");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Arena");
     }
 
     public void Join()
     {
         NetworkManager.Singleton.StartClient();
         Debug.Log("Joining");
+    }
+
+    public void Disconnect()
+    {
+        NetworkManager.Singleton.Shutdown();
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Start Menu");
     }
 }
