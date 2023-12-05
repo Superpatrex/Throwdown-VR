@@ -4,26 +4,28 @@ using UnityEngine;
 using Unity.Netcode;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class NetworkConnect : MonoBehaviour
 {
     public void Create()
     {
-        NetworkManager.Singleton.StartHost();
         Debug.Log("Creating");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Arena");
+        SceneManager.LoadScene("Arena", LoadSceneMode.Additive);
+        NetworkManager.Singleton.StartHost();
+        SceneManager.UnloadScene("Start Menu");
     }
 
     public void Join()
     {
-        NetworkManager.Singleton.StartClient();
         Debug.Log("Joining");
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Arena");
+        SceneManager.LoadScene("Arena", LoadSceneMode.Single);
+        NetworkManager.Singleton.StartClient();
     }
 
     public void Disconnect()
     {
+        SceneManager.LoadScene("Start Menu", LoadSceneMode.Single);
         NetworkManager.Singleton.Shutdown();
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Start Menu");
     }
 }
