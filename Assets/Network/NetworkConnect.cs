@@ -18,6 +18,7 @@ public class NetworkConnect : MonoBehaviour
     {
         NetworkManager.Singleton.StartClient();
         Debug.Log("Joining");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Arena");
     }
 
     public void Disconnect()
