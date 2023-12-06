@@ -51,6 +51,9 @@
 
         public bool disableMovement = false;
 
+        private bool currentHasPowerUp = false;
+        private float powerUpTime;
+
         private void Awake()
         {
             if (_instance != null && _instance != this)
@@ -115,6 +118,16 @@
             RaycastHit hitInfo;
 
             bodyCollider.transform.eulerAngles = new Vector3(0, headCollider.transform.eulerAngles.y, 0);
+
+            if (currentHasPowerUp)
+            {
+                powerUpTime -= Time.deltaTime;
+                if (powerUpTime < 0f)
+                {
+                    currentHasPowerUp = false;
+                    TurnPowerUpOff();
+                }
+            }
 
             //left hand
 

@@ -16,8 +16,8 @@ public class HittableObject : MonoBehaviour
     public ParticleSystem deathParticle = null;
     public AudioClip deathSound = null;
     
-    private float hitTime;
-    private bool justHit = false;
+    protected float hitTime;
+    protected bool justHit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -63,14 +63,14 @@ public class HittableObject : MonoBehaviour
         DisplayParticle(hitParticle);
     }
 
-    private void PlaySound(AudioClip sound)
+    protected void PlaySound(AudioClip sound)
     {
         if (sound == null)
             return;
         AudioSource.PlayClipAtPoint(sound, transform.position);
     }
 
-    private void DisplayParticle(ParticleSystem particle)
+    protected void DisplayParticle(ParticleSystem particle)
     {
         if (particle == null)
             return;
@@ -79,19 +79,16 @@ public class HittableObject : MonoBehaviour
         particle.Emit(100);
     }
 
-    private bool CheckIfSelf(DamageObject source)
+    protected bool CheckIfSelf(DamageObject source)
     {
         XRDirectInteractor[] hands = GetComponentsInChildren<XRDirectInteractor>();
-        Debug.Log("asas");
         if (hands == null)
             return false;
         for (int i = 0; i < hands.Length; i++)
         {
-            Debug.Log("asas2");
             List<IXRSelectInteractable> selected = hands[i].interactablesSelected;
             for (int j = 0; j < selected.Count; j++)
             {
-                Debug.Log("asas3");
                 if (UnityEngine.Object.ReferenceEquals(selected[j].transform.gameObject, source.gameObject))
                     return true;
                 else
