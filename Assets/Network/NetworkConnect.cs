@@ -10,15 +10,12 @@ public class NetworkConnect : MonoBehaviour
 {
     public void Create()
     {
-        Debug.Log("Creating");
-        SceneManager.LoadScene("Arena", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Arena", LoadSceneMode.Single);
         NetworkManager.Singleton.StartHost();
-        SceneManager.UnloadScene("Start Menu");
     }
 
     public void Join()
     {
-        Debug.Log("Joining");
         SceneManager.LoadScene("Arena", LoadSceneMode.Single);
         NetworkManager.Singleton.StartClient();
     }

@@ -14,6 +14,7 @@ public class NetworkPlayer : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        DontDestroyOnLoad(gameObject);
         // Call the base functionality
         base.OnNetworkSpawn();
 
