@@ -4,22 +4,32 @@ using Unity.Mathematics;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.UI;
+using UnityEngine.AI;
 
-public class Enemy : MonoBehaviour
+public class Enemy : MonoBehaviour 
 {
-    public float movementSpeed = 0.4f;
+    public float movementSpeed = .4f * EnemyController.enemyMovementSpeedMultiplier;
 
     private GameObject head;
     private GameObject body;
     private GameObject left;
     private GameObject right;
 
+    //public Rigidbody rb;
+
     private Vector3 headCenter;
     private Vector3 bodyCenter;
     private Vector3 leftCenter;
     private Vector3 rightCenter;
 
-    private GameObject target;
+    public GameObject target;
+
+    public NavMeshAgent agent;
+
+    public Animator attackAnimation;
+
+    public float minimumDistance = .5f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,14 +45,43 @@ public class Enemy : MonoBehaviour
         rightCenter = right.transform.position;
 
         target = GameObject.Find("GorillaPlayer");
+
+        if (GetComponent<Rigidbody>() == null)
+        {
+            gameObject.AddComponent<Rigidbody>();
+            Debug.Log("Add Rigid Body");
+        }
+        else if (GetComponent<Rigidbody>().isKinematic)
+        {
+            GetComponent<Rigidbody>().isKinematic = false;
+            Debug.Log("ARemoved kinematic");
+        }
+        else if (GetComponent<BoxCollider>() == null)
+        {
+            gameObject.AddComponent<BoxCollider>();
+            Debug.Log("Add Box Collider");
+        }
+
+        //if (attackAnimation == null)
+        //{
+        //    attackAnimation = gameObject.GetComponent<Animator>();
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
         LookAtPlayer();
-        //MoveTowardsPlayer();
-        Jiggle();
+        MoveTowardsPlayer();
+        //Jiggle();
+
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+
+        if (distance < this.minimumDistance)
+        {
+            //attackAnimation.SetTrigger("Attack");
+            Debug.Log("Hit me Hit me");
+        }
     }
 
     void LookAtPlayer()
@@ -55,12 +94,10 @@ public class Enemy : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        Vector3 pos = transform.position;
-        Vector3 pos2 = target.transform.position;
-        Vector3 diff = pos - pos2;
-        diff.y = 0;
-        diff = diff.normalized * -movementSpeed * Time.deltaTime;
-        transform.position += diff;
+        agent.SetDestination(target.transform.position);
+
+        var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
     }
 
     void Jiggle()

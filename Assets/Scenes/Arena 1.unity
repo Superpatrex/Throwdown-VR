@@ -11368,10 +11368,10 @@ MonoBehaviour:
   zMin: -10
   zMax: 10
   powerUp:
-  - {fileID: 8093459023237344669, guid: 2deefd9a477fe0a42999445d8dd6a6f9, type: 3}
-  - {fileID: 8093459023237344669, guid: 70561137afbd1ac45bb018b2a4ab41e8, type: 3}
-  - {fileID: 8093459023237344669, guid: 7cd9eb35897616d4b88bb967598b02a0, type: 3}
   - {fileID: 981604985910235331, guid: c76dc0ba57cb96842ab0d0969b93a933, type: 3}
+  - {fileID: 8093459023237344669, guid: 70561137afbd1ac45bb018b2a4ab41e8, type: 3}
+  - {fileID: 8093459023237344669, guid: 2deefd9a477fe0a42999445d8dd6a6f9, type: 3}
+  - {fileID: 8093459023237344669, guid: 7cd9eb35897616d4b88bb967598b02a0, type: 3}
   xPos: 0
   zPos: 0
   minTime: 10

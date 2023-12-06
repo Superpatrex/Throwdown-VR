@@ -984,6 +984,11 @@ MonoBehaviour:
   wasLeftHandTouching: 0
   wasRightHandTouching: 0
   disableMovement: 0
+  currentHasPowerUp: 0
+  powerUpTime: 0
+  defaultJumpMultiplier: 0
+  defaultVelocityLimit: 0
+  defaultMaxArmLength: 0
 --- !u!54 &4096471140841112754
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1080,7 +1085,7 @@ Transform:
   m_GameObject: {fileID: 8464280922495313237}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.46, y: 2.526, z: -0.841}
+  m_LocalPosition: {x: 0, y: 40, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

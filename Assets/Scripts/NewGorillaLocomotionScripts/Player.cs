@@ -4,6 +4,7 @@
 
     public class Player : MonoBehaviour
     {
+        private float playerHeath = 10f;
         private static Player _instance;
 
         public static Player Instance { get { return _instance; } }
@@ -66,6 +67,7 @@
             this.jumpMultiplier = defaultJumpMultiplier;
             this.velocityLimit = defaultVelocityLimit;
             this.maxArmLength = defaultMaxArmLength;
+            DamageObject.damage = 1.0f;
         }
 
         public void SetPowerUp(PowerUp.typeOfPowerUp powerUpTime)
@@ -76,11 +78,11 @@
             }
             else if (powerUpTime == PowerUp.typeOfPowerUp.SPEED)
             {
-                this.velocityLimit *= 5;
+                //this.velocityLimit *= 5;
             }
             else if (powerUpTime == PowerUp.typeOfPowerUp.BIG)
             {
-                this.maxArmLength *= 5;
+                //this.maxArmLength *= 5;
             }
 
             this.powerUpTime = 30f;
@@ -151,8 +153,6 @@
 
             if (currentHasPowerUp)
             {
-                Debug.Log("PowerUpActive");
-
                 powerUpTime -= Time.deltaTime;
                 if (powerUpTime < 0f)
                 {

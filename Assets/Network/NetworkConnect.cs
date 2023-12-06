@@ -10,19 +10,19 @@ public class NetworkConnect : MonoBehaviour
 {
     public void Create()
     {
-        SceneManager.LoadScene("Arena", LoadSceneMode.Single);
-        NetworkManager.Singleton.StartHost();
+        //SceneManager.LoadScene("Arena", LoadSceneMode.Single);
+        //NetworkManager.Singleton.StartHost();
     }
 
     public void Join()
     {
-        SceneManager.LoadScene("Arena", LoadSceneMode.Single);
-        NetworkManager.Singleton.StartClient();
+        //SceneManager.LoadScene("Arena", LoadSceneMode.Single);
+        //NetworkManager.Singleton.StartClient();
     }
 
     public void Disconnect()
     {
-        SceneManager.LoadScene("Start Menu", LoadSceneMode.Single);
-        NetworkManager.Singleton.Shutdown();
+        //SceneManager.LoadScene("Start Menu", LoadSceneMode.Single);
+        //NetworkManager.Singleton.Shutdown();
     }
 }

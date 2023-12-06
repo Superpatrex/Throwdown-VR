@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DamageObject : MonoBehaviour
 {
-    public float damage = 1;
+    public static float damage = 3f;
     public bool isHeld = false;
     public GameObject hitDirection;
 
@@ -61,6 +61,10 @@ public class DamageObject : MonoBehaviour
         if (hittableObject.GetType() == typeof(PowerUp))
         {
             ((PowerUp)hittableObject).Damage(damage, dir, this);
+        }
+        else if (hittableObject.GetType() == typeof(ReturnToLobby))
+        {
+            ((ReturnToLobby)hittableObject).Damage(damage, dir, this);
         }
         else
         {

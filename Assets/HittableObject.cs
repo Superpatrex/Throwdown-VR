@@ -23,10 +23,23 @@ public class HittableObject : MonoBehaviour
     void Start()
     {
         hitTime = 0;
+
+        if (deathParticle == null && hitParticle == null)
+        {
+            ParticleSystem[] particleSystems = GameObject.Find("ParticleEffects").GetComponentsInChildren<ParticleSystem>();
+            foreach (ParticleSystem particleSystem in particleSystems)
+            {
+                if (particleSystem.name == "BloodParticle")
+                {
+                    hitParticle = particleSystem;
+                    deathParticle = particleSystem;
+                }
+            }
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (justHit)
         {
@@ -58,6 +71,7 @@ public class HittableObject : MonoBehaviour
             DisplayParticle(deathParticle);
             PlaySound(deathSound);
             Destroy(gameObject);
+            EnemyController.numEnemies--;
             return;
         }
         DisplayParticle(hitParticle);

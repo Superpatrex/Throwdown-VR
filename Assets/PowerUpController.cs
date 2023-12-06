@@ -44,7 +44,17 @@ public class PowerUpController : MonoBehaviour
 
     private GameObject PickRandomPowerUpPrefab()
     {
-        return powerUp[UnityEngine.Random.Range(0, powerUp.Length)];
+        PowerUp.typeOfPowerUp powerUpEnum = GetRandomEnum<PowerUp.typeOfPowerUp>();
+
+        return powerUp[(int)powerUpEnum];
+    }
+
+    public static T GetRandomEnum<T>()
+    {
+        System.Array A = System.Enum.GetValues(typeof(T));
+        T V = (T)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+
+        return V;
     }
 
     private void PlaySound(AudioClip sound)

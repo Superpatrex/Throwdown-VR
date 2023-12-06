@@ -8,11 +8,21 @@ using UnityEngine.UI;
 
 public class GameInformation : MonoBehaviour
 {
-    public int difficulty = 1;
+    public static int difficulty = 1;
     public TextMeshProUGUI difficultyDisplay;
+    public AudioClip easyMode;
+    public AudioClip mediumMode;
+    public AudioClip hardMode; 
+
+    private bool scenesLoaded = false;
+
+    public Player player;
+
+    public GameObject playerPrefab;
     // Start is called before the first frame update
     void Start()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -24,25 +34,52 @@ public class GameInformation : MonoBehaviour
 
     public void UpdateDifficulty()
     {
-        if (++difficulty > 3)
-            difficulty = 1;
 
-        switch (difficulty)
+        switch (difficultyDisplay.text)
         {
-            case 1:
-                difficultyDisplay.text = "Difficulty: Easy";
+            case "Difficulty: Easy":
+                PlaySound(this.easyMode);
+                difficulty = 1;
                 break;
-            case 2:
-                difficultyDisplay.text = "Difficulty: Medium";
+            case "Difficulty: Medium":
+                PlaySound(this.mediumMode);
+                difficulty = 2;
                 break;
             default:
-                difficultyDisplay.text = "Difficulty: Hard";
+                PlaySound(this.hardMode);
+                difficulty = 3;
                 break;
         }
+        Debug.Log(difficulty);
     }
 
+    // There is a bug when in the editor things get dark. This is fixed on an actual build.
     public void StartGame()
     {
         SceneManager.LoadScene("Arena", LoadSceneMode.Single);
     }
+
+    // This method is called when a new scene has finished loading
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Arena")
+        {
+            SceneManager.SetActiveScene(scene);
+            Debug.Log("Arena scene loaded and set as active.");
+        }
+    }
+
+    void OnDestroy()
+    {
+        // Unsubscribe from the scene loaded event
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void PlaySound(AudioClip sound)
+    {
+        if (sound == null)
+            return;
+        AudioSource.PlayClipAtPoint(sound, transform.position);
+    }
+
 }

@@ -15,11 +15,37 @@ public class PowerUp : HittableObject
 
     private String playerName = "/Player Prefab/GorillaPlayer";
 
+    private static ParticleSystem[] particleSystems;
+
     public typeOfPowerUp typePower = typeOfPowerUp.DAMAGE;
 
     void Awake()
     {
-        
+        particleSystems = GameObject.Find("ParticleEffects").GetComponentsInChildren<ParticleSystem>();
+
+        foreach (ParticleSystem particleSystem in particleSystems)
+        {
+            if (particleSystem.name == "DamagePowerUp" && typePower == typeOfPowerUp.DAMAGE)
+            {
+                hitParticle = particleSystem;
+                deathParticle = particleSystem;
+            }
+            else if (particleSystem.name == "JumpPowerUp" && typePower == typeOfPowerUp.JUMP)
+            {
+                hitParticle = particleSystem;
+                deathParticle = particleSystem;
+            }
+            else if (particleSystem.name == "BigPowerUp" && typePower == typeOfPowerUp.BIG)
+            {
+                hitParticle = particleSystem;
+                deathParticle = particleSystem;
+            }
+            else if (particleSystem.name == "SpeedPowerUp" && typePower == typeOfPowerUp.SPEED)
+            {
+                hitParticle = particleSystem;
+                deathParticle = particleSystem;
+            }
+        }
     }
 
     public void Damage(float damage, Vector3 direction, DamageObject source)
@@ -50,7 +76,7 @@ public class PowerUp : HittableObject
             }
             else if (typePower == typeOfPowerUp.DAMAGE)
             {
-                
+                DamageObject.damage *= 2.0f;
             }
 
             return;
