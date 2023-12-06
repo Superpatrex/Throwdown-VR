@@ -52,10 +52,19 @@ public class DamageObject : MonoBehaviour
         HittableObject hittableObject = other.gameObject.GetComponent<HittableObject>();
         if (hittableObject == null)
             return;
+
         Vector3 dir = hitDirection.transform.forward.normalized;
         dir.y = 0;
         dir = dir.normalized;
         dir.y = 0.6f;
-        hittableObject.Damage(damage, dir, this);
+
+        if (hittableObject.GetType() == typeof(PowerUp))
+        {
+            ((PowerUp)hittableObject).Damage(damage, dir, this);
+        }
+        else
+        {
+            hittableObject.Damage(damage, dir, this);
+        }
     }
 }

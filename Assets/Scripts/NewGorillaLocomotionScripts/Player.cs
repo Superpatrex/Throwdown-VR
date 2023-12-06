@@ -51,6 +51,42 @@
 
         public bool disableMovement = false;
 
+        public bool currentHasPowerUp = false;
+        public float powerUpTime;
+
+        public float defaultJumpMultiplier;
+        public float defaultVelocityLimit;
+        public float defaultMaxArmLength;
+
+
+        private void TurnPowerUpOff()
+        {
+            this.powerUpTime = 0f;
+            this.currentHasPowerUp = false;
+            this.jumpMultiplier = defaultJumpMultiplier;
+            this.velocityLimit = defaultVelocityLimit;
+            this.maxArmLength = defaultMaxArmLength;
+        }
+
+        public void SetPowerUp(PowerUp.typeOfPowerUp powerUpTime)
+        {
+            if (powerUpTime == PowerUp.typeOfPowerUp.JUMP)
+            {
+                this.jumpMultiplier *= 2;
+            }
+            else if (powerUpTime == PowerUp.typeOfPowerUp.SPEED)
+            {
+                this.velocityLimit *= 5;
+            }
+            else if (powerUpTime == PowerUp.typeOfPowerUp.BIG)
+            {
+                this.maxArmLength *= 5;
+            }
+
+            this.powerUpTime = 30f;
+            this.currentHasPowerUp = true;
+        }
+
         private void Awake()
         {
             if (_instance != null && _instance != this)
@@ -112,6 +148,19 @@
             Vector3 rigidBodyMovement = Vector3.zero;
             Vector3 firstIterationLeftHand = Vector3.zero;
             Vector3 firstIterationRightHand = Vector3.zero;
+
+            if (currentHasPowerUp)
+            {
+                Debug.Log("PowerUpActive");
+
+                powerUpTime -= Time.deltaTime;
+                if (powerUpTime < 0f)
+                {
+                    currentHasPowerUp = false;
+                    TurnPowerUpOff();
+                }
+            }
+
             RaycastHit hitInfo;
 
             bodyCollider.transform.eulerAngles = new Vector3(0, headCollider.transform.eulerAngles.y, 0);
