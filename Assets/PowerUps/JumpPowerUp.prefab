@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8093459023237344669}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1, y: 1.56, z: -0.007}
   m_LocalScale: {x: 0.39999998, y: 0.39999998, z: 0.39999998}
   m_ConstrainProportionsScale: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 258629fd8da4dc24981d5644f39f5288, type: 2}
+  - {fileID: 2100000, guid: 87a510210c22148429d1d4c53f9fb4dd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   health: 1
   hitCooldown: 1
   hitParticle: {fileID: 0}
-  hitSound: {fileID: 8300000, guid: adf7bf50bfd6be941ab1a2e253037d59, type: 3}
+  hitSound: {fileID: 8300000, guid: d08d6f8015895d04fa4be66ee3e89404, type: 3}
   deathParticle: {fileID: 0}
-  deathSound: {fileID: 8300000, guid: adf7bf50bfd6be941ab1a2e253037d59, type: 3}
-  type: 0
+  deathSound: {fileID: 8300000, guid: d08d6f8015895d04fa4be66ee3e89404, type: 3}
+  typePower: 1
