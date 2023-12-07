@@ -83,7 +83,7 @@ public class HittableObject : MonoBehaviour
         }
         DisplayParticle(hitParticle);
         if (this.name == "Enemy Prefab(Clone)")
-            this.GetComponent<Enemy>().Stun(damage * 0.15f);
+            this.GetComponent<Enemy>().Stun(damage * 0.15f + 0.25f);
     }
 
     protected void PlaySound(AudioClip sound)

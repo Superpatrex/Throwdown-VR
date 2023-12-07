@@ -76,7 +76,7 @@ public class PowerUp : HittableObject
             }
             else if (typePower == typeOfPowerUp.DAMAGE)
             {
-                DamageObject.damage *= 3.0f;
+                DamageObject.damageMultiplier = 3.0f;
             }
 
             return;

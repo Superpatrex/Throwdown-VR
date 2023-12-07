@@ -59,6 +59,7 @@
 
         public float defaultMaxArmLength = 1.5f;
 
+        private Vector3 defaultGrav = Physics.gravity;
 
         private void TurnPowerUpOff()
         {
@@ -67,18 +68,19 @@
             this.jumpMultiplier = defaultJumpMultiplier;
             transform.localScale = new Vector3(1f, 1f, 1f);
             this.maxArmLength = defaultMaxArmLength;
-            DamageObject.damage = 1.0f;
+            DamageObject.damageMultiplier = 1.0f;
+            Physics.gravity = defaultGrav;
         }
 
         public void SetPowerUp(PowerUp.typeOfPowerUp powerUpTime)
         {
             if (powerUpTime == PowerUp.typeOfPowerUp.JUMP)
             {
-                this.jumpMultiplier *= 2;
+                Physics.gravity *= 0.4f;
             }
             else if (powerUpTime == PowerUp.typeOfPowerUp.SPEED)
             {
-                //this.velocityLimit *= 5;
+                this.jumpMultiplier *= 2;
             }
             else if (powerUpTime == PowerUp.typeOfPowerUp.BIG)
             {

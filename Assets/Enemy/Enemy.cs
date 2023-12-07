@@ -74,15 +74,6 @@ public class Enemy : MonoBehaviour
         }
         MoveTowardsPlayer();
         LookAtPlayer();
-        //Jiggle();
-
-        float distance = Vector3.Distance(transform.position, target.transform.position);
-
-        if (distance < this.minimumDistance)
-        {
-            //attackAnimation.SetTrigger("Attack");
-            Debug.Log("Hit me Hit me");
-        }
     }
 
     void LookAtPlayer()
@@ -90,7 +81,7 @@ public class Enemy : MonoBehaviour
         Vector3 relativePos = target.transform.position - transform.position;
         relativePos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 16);
     }
 
     void MoveTowardsPlayer()

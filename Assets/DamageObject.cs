@@ -7,7 +7,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class DamageObject : MonoBehaviour
 {
-    public static float damage = 3f;
+    public static float damageMultiplier = 1f;
+    public float damage = 3f;
     public bool isHeld = false;
     public GameObject hitDirection;
 
