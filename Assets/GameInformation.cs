@@ -18,6 +18,8 @@ public class GameInformation : MonoBehaviour
 
     public Player player;
 
+    public static int score = 0;
+
     public GameObject playerPrefab;
     // Start is called before the first frame update
     void Start()

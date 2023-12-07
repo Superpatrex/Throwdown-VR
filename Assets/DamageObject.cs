@@ -66,6 +66,11 @@ public class DamageObject : MonoBehaviour
         {
             ((ReturnToLobby)hittableObject).Damage(damage, dir, this);
         }
+        else if (hittableObject.name == "Enemy Prefab(Clone)")
+        {
+            GameInformation.score++;
+            hittableObject.Damage(damage, dir, this);
+        }
         else
         {
             hittableObject.Damage(damage, dir, this);

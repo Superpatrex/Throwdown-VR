@@ -52,6 +52,7 @@ public class EnemyController : MonoBehaviour
 
     public void StartEnemies()
     {
+        GameInformation.score = 0;
         this.startEnemies = true;
     }
 

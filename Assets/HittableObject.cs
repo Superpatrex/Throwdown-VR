@@ -71,6 +71,12 @@ public class HittableObject : MonoBehaviour
             DisplayParticle(deathParticle);
             PlaySound(deathSound);
             Destroy(gameObject);
+
+            if (this.name == "Enemy Prefab(Clone)")
+            {
+                GameInformation.score += 5;
+            }
+            
             EnemyController.numEnemies--;
             return;
         }

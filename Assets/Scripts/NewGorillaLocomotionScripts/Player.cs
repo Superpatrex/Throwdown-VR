@@ -56,8 +56,8 @@
         public float powerUpTime;
 
         public float defaultJumpMultiplier;
-        public float defaultVelocityLimit;
-        public float defaultMaxArmLength;
+
+        public float defaultMaxArmLength = 1.5f;
 
 
         private void TurnPowerUpOff()
@@ -65,7 +65,7 @@
             this.powerUpTime = 0f;
             this.currentHasPowerUp = false;
             this.jumpMultiplier = defaultJumpMultiplier;
-            this.velocityLimit = defaultVelocityLimit;
+            transform.localScale = new Vector3(1f, 1f, 1f);
             this.maxArmLength = defaultMaxArmLength;
             DamageObject.damage = 1.0f;
         }
@@ -82,7 +82,8 @@
             }
             else if (powerUpTime == PowerUp.typeOfPowerUp.BIG)
             {
-                //this.maxArmLength *= 5;
+                transform.localScale += 2 * new Vector3(1.5f, 1.5f, 1.5f);
+                this.maxArmLength *= 3;
             }
 
             this.powerUpTime = 30f;
