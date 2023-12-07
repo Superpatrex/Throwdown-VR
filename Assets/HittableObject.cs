@@ -15,6 +15,7 @@ public class HittableObject : MonoBehaviour
     public AudioClip hitSound = null;
     public ParticleSystem deathParticle = null;
     public AudioClip deathSound = null;
+    public bool isPlayer = false;
     
     protected float hitTime;
     protected bool justHit = false;
@@ -54,10 +55,13 @@ public class HittableObject : MonoBehaviour
 
     public void Damage(float damage, Vector3 direction, DamageObject source)
     {
+        Debug.Log("1");
         if (hitTime > 0)
             return;
-        if (CheckIfSelf(source))
+        Debug.Log("2");
+        if (CheckIfSelf(source) != isPlayer)
             return;
+        Debug.Log("3");
 
         health -= damage;
         Vector3 force = direction.normalized * (0.6f * damage + 2f);
@@ -104,7 +108,7 @@ public class HittableObject : MonoBehaviour
 
     protected bool CheckIfSelf(DamageObject source)
     {
-        XRDirectInteractor[] hands = GetComponentsInChildren<XRDirectInteractor>();
+        /*XRDirectInteractor[] hands = GetComponentsInChildren<XRDirectInteractor>();
         if (hands == null)
             return false;
         for (int i = 0; i < hands.Length; i++)
@@ -121,6 +125,8 @@ public class HittableObject : MonoBehaviour
                 }
             }
         }
-        return false;
+        return false;*/
+
+        return source.enemyWeapon;
     }
 }
