@@ -6,6 +6,7 @@ using System.Drawing;
 public class EnemyController : MonoBehaviour
 {
     public GameObject [] enemyTypes;
+    public GameObject locationTracker;
     public float minSpawnTime = 20;
     public float maxSpawnTime = 10;
     public int maxEnemies = 1;
@@ -91,6 +92,14 @@ public class EnemyController : MonoBehaviour
 
         temp.transform.position = transform.position;
         temp.transform.position = new Vector3(enemySpawnLocation.x, enemySpawnLocation.y, enemySpawnLocation.z);
+
+        GameObject tracker = Instantiate(locationTracker, new Vector3(enemySpawnLocation.x, enemySpawnLocation.y, enemySpawnLocation.z), Quaternion.identity);
+        
+        tracker.transform.position = transform.position;
+        tracker.transform.position = new Vector3(enemySpawnLocation.x, enemySpawnLocation.y, enemySpawnLocation.z);
+        
+        temp.GetComponent<Enemy>().tracker = tracker;
+        tracker.GetComponent<Tracker>().enemy = temp.GetComponent<Enemy>();
     }
 
     private GameObject PickRandomEnemy()

@@ -35,7 +35,7 @@ public class DamageObject : MonoBehaviour
     {
         isHeld = true;
         damageEnabled = true;
-        GetComponent<Rigidbody>().excludeLayers = ~(1 << 7);
+        // GetComponent<Rigidbody>().excludeLayers = ~(1 << 7);
     }
     
     public void Drop()

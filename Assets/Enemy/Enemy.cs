@@ -15,20 +15,16 @@ public class Enemy : MonoBehaviour
     private GameObject left;
     private GameObject right;
 
-    //public Rigidbody rb;
-
     private Vector3 headCenter;
     private Vector3 bodyCenter;
     private Vector3 leftCenter;
     private Vector3 rightCenter;
 
     public GameObject target;
-
-    public NavMeshAgent agent;
-
-    public Animator attackAnimation;
+    public GameObject tracker;
 
     public float minimumDistance = .5f;
+    private float stunTime = 0;
 
 
     // Start is called before the first frame update
@@ -71,8 +67,13 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LookAtPlayer();
+        if (stunTime > 0)
+        {
+            stunTime -= Time.deltaTime;
+            return;
+        }
         MoveTowardsPlayer();
+        LookAtPlayer();
         //Jiggle();
 
         float distance = Vector3.Distance(transform.position, target.transform.position);
@@ -89,15 +90,20 @@ public class Enemy : MonoBehaviour
         Vector3 relativePos = target.transform.position - transform.position;
         relativePos.y = 0;
         Quaternion rotation = Quaternion.LookRotation(relativePos, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 1);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * 10);
     }
 
     void MoveTowardsPlayer()
     {
-        agent.SetDestination(target.transform.position);
+        Vector3 position = transform.position;
+        Vector3 targetPosition = tracker.transform.position;
 
-        var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 5f * Time.deltaTime);
+        Vector3 diff = targetPosition - position;
+        diff = diff.normalized;
+        diff *= Time.deltaTime;
+        diff *= movementSpeed;
+
+        transform.position += diff;
     }
 
     void Jiggle()
@@ -119,5 +125,15 @@ public class Enemy : MonoBehaviour
         Vector3 bodyPos = bodyCenter;
         bodyPos.y = bodyPos.y + 0.1f * Mathf.PerlinNoise(6, Time.timeSinceLevelLoad);
         body.transform.position = bodyPos;
+    }
+
+    public void Stun(float time)
+    {
+        stunTime = time;
+    }
+
+    public void Die()
+    {
+        GameObject.Destroy(tracker);
     }
 }

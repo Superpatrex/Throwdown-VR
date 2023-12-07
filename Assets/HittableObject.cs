@@ -24,7 +24,7 @@ public class HittableObject : MonoBehaviour
     {
         hitTime = 0;
 
-        if (deathParticle == null && hitParticle == null)
+        
         {
             ParticleSystem[] particleSystems = GameObject.Find("ParticleEffects").GetComponentsInChildren<ParticleSystem>();
             foreach (ParticleSystem particleSystem in particleSystems)
@@ -60,7 +60,7 @@ public class HittableObject : MonoBehaviour
             return;
 
         health -= damage;
-        Vector3 force = direction.normalized * (0.4f * damage + 2f);
+        Vector3 force = direction.normalized * (0.6f * damage + 2f);
         GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
         justHit = true;
         hitTime = hitCooldown;
@@ -75,12 +75,15 @@ public class HittableObject : MonoBehaviour
             if (this.name == "Enemy Prefab(Clone)")
             {
                 GameInformation.score += 5;
+                this.GetComponent<Enemy>().Die();
             }
             
             EnemyController.numEnemies--;
             return;
         }
         DisplayParticle(hitParticle);
+        if (this.name == "Enemy Prefab(Clone)")
+            this.GetComponent<Enemy>().Stun(damage * 0.15f);
     }
 
     protected void PlaySound(AudioClip sound)
