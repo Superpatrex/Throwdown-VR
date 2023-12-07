@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using Unity.XR.CoreUtils;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class HittableObject : MonoBehaviour
@@ -72,6 +73,8 @@ public class HittableObject : MonoBehaviour
         PlaySound(hitSound);
         if (health < 0)
         {
+            if (isPlayer)
+                SceneManager.LoadScene("Start Menu", LoadSceneMode.Single);
             DisplayParticle(deathParticle);
             PlaySound(deathSound);
             Destroy(gameObject);

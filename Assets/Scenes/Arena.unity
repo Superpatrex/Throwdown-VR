@@ -5480,7 +5480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &804616484
 Transform:
   m_ObjectHideFlags: 0
@@ -8078,7 +8078,7 @@ MonoBehaviour:
   damage: 3
   isHeld: 0
   hitDirection: {fileID: 813553634}
-  enemyWeapon: 0
+  enemyWeapon: 1
   damageEnabled: 0
 --- !u!54 &1087869777
 Rigidbody:
@@ -9448,7 +9448,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1416165929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9886,7 +9886,7 @@ MonoBehaviour:
   damage: 3
   isHeld: 0
   hitDirection: {fileID: 1311553266}
-  enemyWeapon: 1
+  enemyWeapon: 0
   damageEnabled: 0
 --- !u!54 &1470212309
 Rigidbody:
