@@ -105,8 +105,11 @@ public class HittableObject : MonoBehaviour
         if (particle == null)
             return;
         particle.transform.position = transform.position;
+        if (isPlayer)
+            particle.transform.position += new Vector3(0, 0.3f, 0);
         particle.Stop();
         particle.Emit(100);
+
     }
 
     protected bool CheckIfSelf(DamageObject source)

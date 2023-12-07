@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour
     public float minSpawnTime = 20;
     public float maxSpawnTime = 10;
     public int maxEnemies = 1;
-    public float curSpawnime;
+    public float curSpawnime = 0;
     private System.Random random;
     public bool startEnemies = false;
     public static int numEnemies;
@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour
     {
         GameInformation.score = 0;
         this.startEnemies = true;
+        curSpawnime = 5;
     }
 
     public void StopEnemies()

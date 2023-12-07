@@ -5,6 +5,7 @@ using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.UI;
 using UnityEngine.AI;
+using System.Net.Http.Headers;
 
 public class Enemy : MonoBehaviour 
 {
@@ -23,7 +24,7 @@ public class Enemy : MonoBehaviour
     public GameObject target;
     public GameObject tracker;
 
-    public float minimumDistance = 2.5f;
+    public float minimumDistance = 3.5f;
     private float stunTime = 0;
 
     public float triedAttack = 3.5f;
@@ -81,43 +82,52 @@ public class Enemy : MonoBehaviour
         }
         MoveTowardsPlayer();
         LookAtPlayer();
-        TryDamange();
+        TryDamage();
     }
 
-    void TryDamange()
+    private bool attacking = false;
+    private float attackTime = 0;
+    Vector3 startpos = new Vector3(-.75f, 1.09f, 0);
+    Vector3 endpos = new Vector3(0, 1.09f, 0.9f);
+
+    void TryDamage()
     {
-        if (Vector3.Distance(transform.position, target.transform.position) < minimumDistance)
+        if (attackTime < 0)
         {
-            triedAttack -= Time.deltaTime;
-            if (triedAttack < 0)
-            {
-                AttackAnimation();
-                triedAttack = coolDownAttack;
-            }
+            attackTime += Time.deltaTime;
+            return;
+        }
+        if (attacking)
+        {
+            AttackAnimation();
+        }
+        else if (distanceToPlayer() < minimumDistance && !attacking)
+        {
+            attacking = true;
+            attackTime = 0;
+            PlaySound(this.swordSlooshSound);
         }
     }
 
     void AttackAnimation()
     {
-        Quaternion tempRotation = right.transform.rotation;
-        Vector3 temp = right.transform.position;
-        right.transform.RotateAround(bodyCenter, Vector3.up, 30);
-        StartCoroutine(WaitAndPrint());
-        right.transform.RotateAround(bodyCenter, Vector3.up, 30);
-        StartCoroutine(WaitAndPrint());
-        right.transform.RotateAround(bodyCenter, Vector3.up, 30);
-        StartCoroutine(WaitAndPrint());
-        StartCoroutine(WaitAndPrint());
-        StartCoroutine(WaitAndPrint());
-        StartCoroutine(WaitAndPrint());
-        StartCoroutine(WaitAndPrint());
-        StartCoroutine(WaitAndPrint());
-
-
-        right.transform.position = temp;
-        right.transform.rotation = tempRotation;
-
-        PlaySound(this.swordSlooshSound);
+        if (attackTime > 0.5f)
+        {
+            right.transform.localPosition = endpos;
+        }
+        else
+        {
+            Vector3 temp = startpos * (0.5f - attackTime) + endpos * attackTime;
+            temp *= 2;
+            right.transform.localPosition = temp;
+        }
+        attackTime += Time.deltaTime;
+        if (attackTime > 1)
+        {
+            right.transform.localPosition = startpos;
+            attacking = false;
+            attackTime = -0.9f;
+        }
     }
 
     private IEnumerator WaitAndPrint()
@@ -136,6 +146,9 @@ public class Enemy : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
+        if (distanceToPlayer() < 1.1)
+            return;
+
         Vector3 position = transform.position;
         Vector3 targetPosition = tracker.transform.position;
 
@@ -145,6 +158,13 @@ public class Enemy : MonoBehaviour
         diff *= movementSpeed;
 
         transform.position += diff;
+    }
+    
+    float distanceToPlayer()
+    {
+        Vector3 temp = target.transform.position - transform.position;
+        temp.y = 0;
+        return temp.magnitude;
     }
 
     void Jiggle()

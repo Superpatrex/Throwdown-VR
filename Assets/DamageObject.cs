@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -21,7 +22,6 @@ public class DamageObject : MonoBehaviour
     {
         if (enemyWeapon)
             damageEnabled = true;
-        GetComponent<Rigidbody>().excludeLayers = 0;
     }
 
     // Update is called once per frame
@@ -52,6 +52,25 @@ public class DamageObject : MonoBehaviour
     {
         isHeld = false;
         disableTime = 0;
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!enemyWeapon)
+            return;
+        
+        if (other.GetComponent<HittableObject>() == null)
+            return;
+
+        if (!other.GetComponent<HittableObject>().isPlayer)
+            return;
+
+        Vector3 dir = hitDirection.transform.forward.normalized;
+        dir.y = 0;
+        dir = dir.normalized;
+        dir.y = 0.6f;
+        
+        other.GetComponent<HittableObject>().Damage(damage, dir, this);
     }
 
     private void OnCollisionEnter(Collision other)
