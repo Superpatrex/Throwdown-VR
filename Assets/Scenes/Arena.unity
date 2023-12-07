@@ -343,11 +343,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: 43cf19174db63f549b650fd48a60e071, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.77401495
+      value: 0.44563136
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 43cf19174db63f549b650fd48a60e071, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6528226
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 43cf19174db63f549b650fd48a60e071, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.1746395
+      value: 0.6762869
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 43cf19174db63f549b650fd48a60e071, type: 3}
       propertyPath: m_LocalPosition.x
@@ -540,15 +544,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: 46bee165790d2c24f9abecc09e243920, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.28787
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 46bee165790d2c24f9abecc09e243920, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.28787
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 46bee165790d2c24f9abecc09e243920, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 0.40301797
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 46bee165790d2c24f9abecc09e243920, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1790,13 +1794,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271622609}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.67129606, y: 0.7405926, z: 0.028726012, w: -0.0076906313}
-  m_LocalPosition: {x: 0.000099897465, y: -0.011899982, z: 0.24149992}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: -0, y: -0.006, z: 0.11}
   m_LocalScale: {x: 0.8918595, y: 1.1629223, z: 0.90794903}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 24081335}
-  m_LocalEulerAnglesHint: {x: -3.031, y: -181.559, z: 84.422}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!135 &271622611
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5628,13 +5632,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 813553634}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.005898297, y: 0.9995682, z: -0.0054113073, w: -0.028273469}
-  m_LocalPosition: {x: -0.019, y: -0.0135, z: 0.0018}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: -0, y: -0, z: -0.342}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 839871017}
-  m_LocalEulerAnglesHint: {x: 0.601, y: -176.756, z: 360.693}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &828666876
 GameObject:
   m_ObjectHideFlags: 0
@@ -5749,12 +5753,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 452707461}
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.44563133
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1338845
+      value: 0.6528227
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5
+      value: 0.86360997
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: dd0682cd55d7f8342b8026ebb1cfc4a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6172,13 +6180,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923030231}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.99488664, y: -0.026598033, z: 0.05753898, w: -0.07862856}
-  m_LocalPosition: {x: 0.04600005, y: 0.02099981, z: 0.1580001}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.184}
   m_LocalScale: {x: 1.2826521, y: 0.88631654, z: 0.8513249}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 839871017}
-  m_LocalEulerAnglesHint: {x: -189.179, y: 6.4149933, z: -2.546997}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!135 &923030233
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6230,15 +6238,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000312232742853606, guid: dae5f67d1026d89459a94a5204a2b29f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000312232742853606, guid: dae5f67d1026d89459a94a5204a2b29f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10
+      value: 2.36
       objectReference: {fileID: 0}
     - target: {fileID: 4000312232742853606, guid: dae5f67d1026d89459a94a5204a2b29f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.841
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4000312232742853606, guid: dae5f67d1026d89459a94a5204a2b29f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7173,13 +7181,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023653749}
   serializedVersion: 2
-  m_LocalRotation: {x: -1, y: -0, z: -0, w: 0.00000008146034}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -0, z: 0.083}
   m_LocalScale: {x: 1.2919648, y: 0.88192415, z: 0.85132515}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1751812202}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!135 &1023653751
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7878,10 +7886,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1087869776}
+        m_TargetAssemblyTypeName: DamageObject, Assembly-CSharp
+        m_MethodName: Hold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1087869776}
+        m_TargetAssemblyTypeName: DamageObject, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -7997,6 +8029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f1122b91be83f4ea4db8ff33befa82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
   isHeld: 0
   hitDirection: {fileID: 813553634}
 --- !u!54 &1087869777
@@ -8071,13 +8104,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1096281087}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.62056994, y: 0.782862, z: 0.039353076, w: 0.021712134}
-  m_LocalPosition: {x: 0.0019997517, y: -0.001000024, z: 0.042000093}
+  m_LocalRotation: {x: 0.9848078, y: -0, z: -0, w: -0.17364809}
+  m_LocalPosition: {x: 0, y: -0.018, z: -0.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 24081335}
-  m_LocalEulerAnglesHint: {x: -5.081, y: 180.854, z: -76.845}
+  m_LocalEulerAnglesHint: {x: 200, y: 0, z: 0}
 --- !u!1 &1112338085
 GameObject:
   m_ObjectHideFlags: 0
@@ -8582,13 +8615,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257740866}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6266099, y: 0.77543604, z: 0.060543496, w: -0.04892354}
-  m_LocalPosition: {x: -0.008000416, y: -0.017999966, z: 0.096000016}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.168}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 45021572}
-  m_LocalEulerAnglesHint: {x: -1.867, y: 188.733, z: -78.024}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!1 &1311553266
 GameObject:
   m_ObjectHideFlags: 0
@@ -8613,13 +8646,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1311553266}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5359618, y: 0.83514285, z: 0.08398679, w: 0.09070586}
-  m_LocalPosition: {x: -0.008, y: -0.033, z: 0.083}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -0.587}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1434169160}
-  m_LocalEulerAnglesHint: {x: -30, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1312446418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 43cf19174db63f549b650fd48a60e071, type: 3}
@@ -8675,10 +8708,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1312446423}
+        m_TargetAssemblyTypeName: DamageObject, Assembly-CSharp
+        m_MethodName: Hold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1312446423}
+        m_TargetAssemblyTypeName: DamageObject, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -8794,6 +8851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f1122b91be83f4ea4db8ff33befa82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
   isHeld: 0
   hitDirection: {fileID: 1096281087}
 --- !u!54 &1312446424
@@ -9491,15 +9549,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: c1ac58f958fd93b49a10161ce774a18e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.77401483
+      value: 0.4456313
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c1ac58f958fd93b49a10161ce774a18e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.133884
+      value: 0.6528223
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c1ac58f958fd93b49a10161ce774a18e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.1746391
+      value: 0.6762867
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c1ac58f958fd93b49a10161ce774a18e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9632,10 +9690,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1470212308}
+        m_TargetAssemblyTypeName: DamageObject, Assembly-CSharp
+        m_MethodName: Hold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1470212308}
+        m_TargetAssemblyTypeName: DamageObject, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -9751,6 +9833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f1122b91be83f4ea4db8ff33befa82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
   isHeld: 0
   hitDirection: {fileID: 1311553266}
 --- !u!54 &1470212309
@@ -10293,13 +10376,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529595658}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7010141, y: -0.70559967, z: -0.07829558, w: 0.06766218}
-  m_LocalPosition: {x: -0.015000187, y: 0.048000045, z: -0.012999973}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.104}
   m_LocalScale: {x: 0.9293231, y: 1.0690362, z: 0.93365145}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1434169160}
-  m_LocalEulerAnglesHint: {x: -11.85, y: 179.164, z: 89.713}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!135 &1529595660
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -12309,10 +12392,34 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1714888106}
+        m_TargetAssemblyTypeName: DamageObject, Assembly-CSharp
+        m_MethodName: Hold
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1714888106}
+        m_TargetAssemblyTypeName: DamageObject, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -12428,6 +12535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f1122b91be83f4ea4db8ff33befa82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
   isHeld: 0
   hitDirection: {fileID: 1257740866}
 --- !u!54 &1714888107
@@ -12763,6 +12871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f1122b91be83f4ea4db8ff33befa82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 3
   isHeld: 0
   hitDirection: {fileID: 108147753}
 --- !u!1 &1761893672
@@ -14041,15 +14150,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -4216859302048453862, guid: 5b6a76c08928d1940a2a12754f822d48, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.57574
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5b6a76c08928d1940a2a12754f822d48, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.57574
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5b6a76c08928d1940a2a12754f822d48, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.57574
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5b6a76c08928d1940a2a12754f822d48, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14672,13 +14781,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048222304}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.77779603, y: -0.6285169, z: 0.000000013736674, w: 0.000000109719785}
-  m_LocalPosition: {x: 0.006, y: 0.019, z: 0.142}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: -0, z: 0.134}
   m_LocalScale: {x: 1.2847662, y: 1.8185152, z: 1.2228429}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 45021572}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!135 &2048222306
 SphereCollider:
   m_ObjectHideFlags: 0

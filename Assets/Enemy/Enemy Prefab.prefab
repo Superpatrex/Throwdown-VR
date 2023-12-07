@@ -400,7 +400,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 5574960562968763738}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -688,13 +689,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5292252869334662683}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.39474297, y: -0.15693708, z: -0.6091619, w: 0.66967946}
-  m_LocalPosition: {x: 0.4300001, y: 0.25, z: -0.43999994}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 0.25, y: -1.18, z: 0.02}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 842400574524822159}
-  m_LocalEulerAnglesHint: {x: -46.046, y: -337.042, z: 265.55402}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!135 &1994118499291264637
 SphereCollider:
   m_ObjectHideFlags: 0
