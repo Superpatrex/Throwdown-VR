@@ -23,9 +23,16 @@ public class Enemy : MonoBehaviour
     public GameObject target;
     public GameObject tracker;
 
-    public float minimumDistance = .5f;
+    public float minimumDistance = 2.5f;
     private float stunTime = 0;
 
+    public float triedAttack = 3.5f;
+    private float coolDownAttack = 3.5f;
+
+    private Quaternion startRotation;
+    private bool isSpinning = false;
+
+    public AudioClip swordSlooshSound;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +81,49 @@ public class Enemy : MonoBehaviour
         }
         MoveTowardsPlayer();
         LookAtPlayer();
+        TryDamange();
+    }
+
+    void TryDamange()
+    {
+        if (Vector3.Distance(transform.position, target.transform.position) < minimumDistance)
+        {
+            triedAttack -= Time.deltaTime;
+            if (triedAttack < 0)
+            {
+                AttackAnimation();
+                triedAttack = coolDownAttack;
+            }
+        }
+    }
+
+    void AttackAnimation()
+    {
+        Quaternion tempRotation = right.transform.rotation;
+        Vector3 temp = right.transform.position;
+        right.transform.RotateAround(bodyCenter, Vector3.up, 30);
+        StartCoroutine(WaitAndPrint());
+        right.transform.RotateAround(bodyCenter, Vector3.up, 30);
+        StartCoroutine(WaitAndPrint());
+        right.transform.RotateAround(bodyCenter, Vector3.up, 30);
+        StartCoroutine(WaitAndPrint());
+        StartCoroutine(WaitAndPrint());
+        StartCoroutine(WaitAndPrint());
+        StartCoroutine(WaitAndPrint());
+        StartCoroutine(WaitAndPrint());
+        StartCoroutine(WaitAndPrint());
+
+
+        right.transform.position = temp;
+        right.transform.rotation = tempRotation;
+
+        PlaySound(this.swordSlooshSound);
+    }
+
+    private IEnumerator WaitAndPrint()
+    {        
+        // Wait for one second
+        yield return new WaitForSeconds(.3f);
     }
 
     void LookAtPlayer()
@@ -126,5 +176,12 @@ public class Enemy : MonoBehaviour
     public void Die()
     {
         GameObject.Destroy(tracker);
+    }
+
+    private void PlaySound(AudioClip sound)
+    {
+        if (sound == null)
+            return;
+        AudioSource.PlayClipAtPoint(sound, transform.position);
     }
 }

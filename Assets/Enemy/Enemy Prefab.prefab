@@ -204,7 +204,6 @@ GameObject:
   - component: {fileID: 9126302188895299955}
   - component: {fileID: 5574960562968763738}
   - component: {fileID: 4943770071360611164}
-  - component: {fileID: 7131726418892362042}
   - component: {fileID: 2712693474986838321}
   - component: {fileID: 2228736149473653866}
   - component: {fileID: 7513693174615738618}
@@ -250,6 +249,8 @@ MonoBehaviour:
   target: {fileID: 0}
   tracker: {fileID: 0}
   minimumDistance: 1.5
+  triedAttack: 1.5
+  swordSlooshSound: {fileID: 8300000, guid: 25afd473b45b8a74699e42092f2e38ff, type: 3}
 --- !u!114 &3179985688303042011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,27 +340,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!95 &7131726418892362042
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4950935224454771841}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7487c88167fc3e140bf4e5f1faa17892, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!54 &2712693474986838321
 Rigidbody:
   m_ObjectHideFlags: 0
